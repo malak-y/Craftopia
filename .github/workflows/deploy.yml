@@ -1,4 +1,4 @@
-name: Deploy Craftopia to Vercel (Single Project)
+name: Deploy Craftopia to Vercel (Frontend & Backend)
 
 on:
   push:
@@ -26,7 +26,6 @@ jobs:
           cache-dependency-path: |
             Frontend/package-lock.json
             Backend/package-lock.json
-
           
       - name: Install Frontend Dependencies
         run: |
@@ -46,9 +45,15 @@ jobs:
       - name: Install Vercel CLI
         run: npm install -g vercel
 
-      - name: Deploy to Vercel
-        run: vercel --prod --yes --token=${{ secrets.VERCEL_TOKEN }} --cwd=Frontend
+      # 🔹 Deploy Frontend
+      - name: Deploy Frontend to Vercel
+        run: vercel --prod --yes --token=${{ secrets.VERCEL_TOKEN }} --cwd=Frontend --project craftopia-frontend
+        env:
+          NODE_ENV: production
 
+      # 🔹 Deploy Backend
+      - name: Deploy Backend to Vercel
+        run: vercel --prod --yes --token=${{ secrets.VERCEL_TOKEN }} --cwd=Backend --project craftopia-backend
         env:
           NODE_ENV: production
           DB_NAME: ${{ secrets.DB_NAME }}
