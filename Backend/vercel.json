@@ -1,0 +1,22 @@
+{
+  "version": 2,
+  "framework": null,
+  "buildCommand": "npm run build || npm install",
+  "outputDirectory": ".",
+  "installCommand": "npm install",
+  "devCommand": "npm start",
+  "functions": {
+    "src/server.js": {
+      "maxDuration": 30
+    }
+  },
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "/src/server.js"
+    }
+  ],
+  "env": {
+    "NODE_ENV": "production"
+  }
+}
