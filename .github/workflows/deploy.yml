@@ -23,6 +23,10 @@ jobs:
         with:
           node-version: '18'
           cache: 'npm'
+          cache-dependency-path: |
+            Frontend/package-lock.json
+            Backend/package-lock.json
+
           
       - name: Install Frontend Dependencies
         run: |
