@@ -1,6 +1,6 @@
-# Craftopia - Vercel Deployment Guide
+# Craftopia - Single Project Vercel Deployment Guide
 
-This guide will help you deploy your Craftopia application to Vercel using GitHub Actions.
+This guide will help you deploy your Craftopia application (both frontend and backend) as a single project on Vercel using GitHub Actions.
 
 ## Prerequisites
 
@@ -13,10 +13,11 @@ This guide will help you deploy your Craftopia application to Vercel using GitHu
 ### 1. Vercel Setup
 
 1. **Sign up/Login to Vercel**: Go to [vercel.com](https://vercel.com) and create an account or log in
-2. **Create Projects**:
-   - Create a new project for the Frontend
-   - Create another project for the Backend
-   - Note down the Project IDs from the project settings
+2. **Create ONE Project**:
+   - Import your GitHub repository (malak-y/Craftopia)
+   - Set Root Directory to `./` (project root)
+   - Framework: Other (or leave as detected)
+   - Note down the Project ID from project settings
 
 3. **Get Vercel Tokens**:
    - Go to Vercel Dashboard → Settings → Tokens
@@ -31,8 +32,7 @@ In your GitHub repository, go to Settings → Secrets and Variables → Actions,
 ```
 VERCEL_TOKEN=your_vercel_token
 VERCEL_ORG_ID=your_vercel_organization_id
-VERCEL_PROJECT_ID=your_frontend_project_id
-VERCEL_BACKEND_PROJECT_ID=your_backend_project_id
+VERCEL_PROJECT_ID=your_single_project_id
 ```
 
 #### Environment Variables (Backend):
