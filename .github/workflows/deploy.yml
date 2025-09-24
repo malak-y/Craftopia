@@ -47,7 +47,8 @@ jobs:
 
       # 🔹 Deploy Frontend
       - name: Deploy Frontend to Vercel
-        run: vercel --prod --yes --token=${{ secrets.VERCEL_TOKEN }} --cwd=Frontend --project craftopia-frontend
+        run: vercel --prod --yes --token=${{ secrets.VERCEL_TOKEN }} --cwd=Frontend
+
         env:
           NODE_ENV: production
 
